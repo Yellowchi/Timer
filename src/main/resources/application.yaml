@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:mysql://1.116.108.109:3306/timer?characterEncoding = utf-8&serverTimezone = Asia/Shanghai
+    username: timer
+    password: mSNSZNyDL6MxpxAh
+  mvc:
+    path-match:
+      matching-strategy: ant_path_matcher
+      # 作用:在Springboot 2.6.*之后已经取消了此种更改方式，所以需要加上这段代码从而能够重新使用此配置方法
+      static-path-pattern: /image/**  #自定义配置
+    # 真实访问地址
+    web:
+      resources:
+        static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/, file:D:/WxMiniProgram/histcircle
+        # 其中的file:D..是图片真实存储地址
+  servlet:
+    multipart:
+      #       设置单个文件大小
+      max-file-size: 50MB
+      #       设置单次请求文件的总大小
+      max-request-size: 500MB
+#mybatis-plus
+mybatis-plus:
+  mapper-locations: com.example.wxreimbursement.Mapper/*.java
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: false
