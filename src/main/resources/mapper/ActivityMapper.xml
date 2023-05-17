@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.timer.mapper.ActivityMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.timer.bean.Activity">
+            <id property="activityid" column="ActivityId" jdbcType="INTEGER"/>
+            <result property="actionid" column="ActionId" jdbcType="INTEGER"/>
+            <result property="userid" column="UserId" jdbcType="INTEGER"/>
+            <result property="start" column="Start" jdbcType="TIMESTAMP"/>
+            <result property="end" column="End" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ActivityId,ActionId,UserId,
+        Start,End
+    </sql>
+</mapper>

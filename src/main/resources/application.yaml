@@ -21,7 +21,7 @@ spring:
       max-request-size: 500MB
 #mybatis-plus
 mybatis-plus:
-  mapper-locations: com.example.wxreimbursement.Mapper/*.java
+  mapper-locations: com.example.timer.mapper/*.java
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: false

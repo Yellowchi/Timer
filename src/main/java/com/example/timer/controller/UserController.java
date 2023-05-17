@@ -20,17 +20,16 @@ public class UserController {
     @PostMapping("/login")
     public Result login(@RequestBody User user){
         QueryWrapper<User> userQueryWrapper = new QueryWrapper<>();
-        userQueryWrapper.eq("tel",user.getTel());
-
+        userQueryWrapper.eq("username",user.getUsername());
         if (userService.count(userQueryWrapper) == 0){
             return Result.usererror();
         }
         User u = userService.getOne(userQueryWrapper);
-        if (u.getPassword().equals(user.getPassword())){
+        if (!u.getPassword().equals(user.getPassword())){
             return Result.paserror();
         }
-        String token = JwtUtils.generateToken(user.getTel());
-        return Result.ok().data("token",token);
+        String token = JwtUtils.generateToken(u.getUserid().toString());
+        return Result.ok().data("token",token).data("userId",u.getUserid());
     }
     @PostMapping("/register")
     public Result register(@RequestBody User user){

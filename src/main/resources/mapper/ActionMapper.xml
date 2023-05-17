@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.timer.mapper.ActionMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.timer.bean.Action">
+            <id property="actionid" column="ActionId" jdbcType="INTEGER"/>
+            <result property="actionname" column="ActionName" jdbcType="VARCHAR"/>
+            <result property="userid" column="UserId" jdbcType="INTEGER"/>
+            <result property="color" column="Color" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ActionId,ActionName,UserId,
+        Color
+    </sql>
+</mapper>
