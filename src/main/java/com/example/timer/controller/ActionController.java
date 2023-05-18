@@ -24,4 +24,14 @@ public class ActionController {
         List<Action> list = actionService.list(actionQueryWrapper);
         return Result.ok().data(list);
     }
+    @GetMapping("/addaction")
+    public Result addaction(@RequestParam int userId,@RequestParam String action,@RequestParam String color){
+        Action a = new Action();
+        a.setUserid(userId);
+        a.setActionname(action);
+        a.setColor("#"+color);
+        System.out.println("addaction:"+a.toString());
+        actionService.save(a);
+        return Result.ok();
+    }
 }

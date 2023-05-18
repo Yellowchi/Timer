@@ -5,10 +5,7 @@ import com.example.timer.Utils.JwtUtils;
 import com.example.timer.Utils.Result;
 import com.example.timer.bean.User;
 import com.example.timer.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -45,5 +42,9 @@ public class UserController {
     public Result edituser(@RequestBody User user){
         userService.updateById(user);
         return Result.ok();
+    }
+    @GetMapping("/getUserInfo")
+    public Result getUserInfo(@RequestParam int userId){
+        return Result.ok().data(userService.getById(userId));
     }
 }
